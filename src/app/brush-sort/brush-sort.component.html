@@ -1,0 +1,41 @@
+<h1>Our Brushes</h1>
+
+<div class="row">
+  <div class="col-md-4 form-group">
+    <label for="material">Search by Material</label>
+    <select class="form-control" [(ngModel)]="material" (change)="onSearchMaterial($event)">
+      <option value="">Show All Materials</option>
+      <option *ngFor="let m of materials" value="{{m.material}}">{{m.material}}</option>
+    </select>
+  </div>
+
+  <div class="col-md-4 form-group">
+    <label for="search">Search by Keyword</label>
+    <div>
+      <input class="form-control" type="text" id="search" [(ngModel)]="search" (keyup)="onSearchKeyword(search)">
+    </div>
+  </div>
+</div>
+
+
+<div class="row" *ngIf="search==''||search==undefined">
+  <div class="col-md-3 m-3" *ngFor="let b of brushes">
+    <div>ID: {{b.id}}</div>
+    <div>Material: {{b.material}}</div>
+    <div>Shape: {{b.shape}}</div>
+    <div>Make: {{b.make}}</div>
+  </div>
+</div>
+
+<div class="row" *ngIf="search!==''">
+  <div class="col-md-3 m-3" *ngFor="let b of filteredBrushes">
+    <div>ID: {{b.id}}</div>
+    <div>Material: {{b.material}}</div>
+    <div>Shape: {{b.shape}}</div>
+    <div>Make: {{b.make}}</div>
+  </div>
+</div>
+
+<div *ngIf="error.status" class="alert alert-danger" role="alert">
+  Error Occurred! Code: {{error.status}} ({{error.message}})
+</div>

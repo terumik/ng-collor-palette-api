@@ -1,0 +1,47 @@
+<div class="container">
+
+  <div class="left">
+    <h1>All Palettes</h1>
+    <!-- showing from the db (needs to match the name of the object)-->
+    <!-- DISPLAY MULTIPLE  -->
+    <div *ngFor="let c of colors">
+      <span>{{c.paletteName}} (ID: {{c.id}})</span>
+      <div class="palette-container">
+        <div class="box main" [style.background-color]="c.color1"></div>
+        <div class="column">
+          <div class="box sub1" [style.background-color]="c.color2"></div>
+          <div class="box sub2" [style.background-color]="c.color3"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <!-- FORM TO DISPLAY SINGLE -->
+    <h1>Details</h1>
+    <select (change)="onChange($event)">
+      <option value='' selected ng-value="null">Please Choose</option>
+      <option value="1">City</option>
+      <option value="2">Fancy</option>
+      <option value="3">Natural</option>
+      <option value="4">Vivid</option>
+      <option value="5">Dawn</option>
+    </select>
+
+    <div *ngFor="let color of color">
+      <div class="mt-3 mb-3">
+        <div>ID: {{color.id}}</div>
+        <div>Name: {{color.paletteName}} </div>
+      </div>
+
+      <div>
+        <div class="stack" [style.background-color]="color.color1">{{color.color1}}</div>
+        <div class="stack" [style.background-color]="color.color2">{{color.color2}}</div>
+        <div class="stack" [style.background-color]="color.color3">{{color.color3}}</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

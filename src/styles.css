@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+
+/* active */
+.nav-pills .custom-pill .nav-link {
+    background-color: #fff;
+    color: #000;
+    border-radius: 4px 4px 0 0;
+}
+/* inactive */
+.nav-pills .custom-pill .nav-link:not(.active) {
+    background-color: #000;
+    color: #fff;
+}
+.custom-nav{
+    background-color: #000;
+}
+
+.custom-home-img{
+    position: relative;
+    width: 100%;
+}
+.custom-home-title{
+    position: relative;
+    top: -80px;
+    background-color: #ffffffcc;
+    padding: 5px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 420px) {
+    .custom-home-title{
+        font-size: 14px;
+    }
+  }
