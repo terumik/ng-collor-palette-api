@@ -17,6 +17,7 @@ export class BrushSortComponent implements OnInit {
   filteredBrushes:Brush[] = [];
   material:string;
   materials:Brush[] = [];
+  search:string;
   error:any = {
     status:null,
     message:null
@@ -38,7 +39,7 @@ export class BrushSortComponent implements OnInit {
         if(!this.materials.some(q=>q.material==element.material)){
           this.materials.push(element);
         }
-      }      
+      }
     },
     err=>{
       this.error.status=err.status;
@@ -58,7 +59,7 @@ export class BrushSortComponent implements OnInit {
   }
 
   onSearchKeyword(keyword:string){
-    
+
     this.filteredBrushes = this.brushes.filter(q=>
       q.id.toString().includes(keyword)
       ||q.material.includes(keyword)
